@@ -1,6 +1,6 @@
 #include "stack.h"
 
-// Функции для задания 1
+// Г”ГіГ­ГЄГ¶ГЁГЁ Г¤Г«Гї Г§Г Г¤Г Г­ГЁГї 1
 int push_sorted_asc(Stack* s, int value) {
     if (is_full(s)) return 0;
     if (!is_empty(s) && value < s->data[s->top]) return 0;
@@ -23,12 +23,12 @@ void merge_stacks_desc(Stack* s1, Stack* s2, Stack* result) {
     }
 }
 
-void task1() {
+void sort_vozr() {
     Stack stack1, stack2, stack3;
     int max_size;
 
-    printf("\n=== Задание 1 ===\n");
-    printf("Введите максимальный размер стеков: ");
+    printf("\n=== Г‡Г Г¤Г Г­ГЁГҐ 1 ===\n");
+    printf("Г‚ГўГҐГ¤ГЁГІГҐ Г¬Г ГЄГ±ГЁГ¬Г Г«ГјГ­Г»Г© Г°Г Г§Г¬ГҐГ° Г±ГІГҐГЄГ®Гў: ");
     scanf("%d", &max_size);
 
     init_stack(&stack1, max_size);
@@ -37,16 +37,16 @@ void task1() {
 
     int choice;
     do {
-        printf("\nМеню задания 1:\n");
-        printf("1. Добавить в 1-й стек (по возрастанию)\n");
-        printf("2. Добавить во 2-й стек (по возрастанию)\n");
-        printf("3. Показать стеки\n");
-        printf("4. Создать 3-й стек (по убыванию)\n");
-        printf("5. Вернуться\nВыберите: ");
+        printf("\nГЊГҐГ­Гѕ Г§Г Г¤Г Г­ГЁГї 1:\n");
+        printf("1. Г„Г®ГЎГ ГўГЁГІГј Гў 1-Г© Г±ГІГҐГЄ (ГЇГ® ГўГ®Г§Г°Г Г±ГІГ Г­ГЁГѕ)\n");
+        printf("2. Г„Г®ГЎГ ГўГЁГІГј ГўГ® 2-Г© Г±ГІГҐГЄ (ГЇГ® ГўГ®Г§Г°Г Г±ГІГ Г­ГЁГѕ)\n");
+        printf("3. ГЏГ®ГЄГ Г§Г ГІГј Г±ГІГҐГЄГЁ\n");
+        printf("4. Г‘Г®Г§Г¤Г ГІГј 3-Г© Г±ГІГҐГЄ (ГЇГ® ГіГЎГ»ГўГ Г­ГЁГѕ)\n");
+        printf("5. Г‚ГҐГ°Г­ГіГІГјГ±Гї\nГ‚Г»ГЎГҐГ°ГЁГІГҐ: ");
 
         if (scanf("%d", &choice) != 1) {
             clear_input_buffer();
-            printf("Ошибка ввода!\n");
+            printf("ГЋГёГЁГЎГЄГ  ГўГўГ®Г¤Г !\n");
             continue;
         }
 
@@ -54,28 +54,28 @@ void task1() {
             case 1: case 2: {
                 Stack* s = (choice == 1) ? &stack1 : &stack2;
                 int val;
-                printf("Введите значение: ");
+                printf("Г‚ГўГҐГ¤ГЁГІГҐ Г§Г­Г Г·ГҐГ­ГЁГҐ: ");
                 if (scanf("%d", &val) != 1) {
                     clear_input_buffer();
-                    printf("Ошибка!\n");
+                    printf("ГЋГёГЁГЎГЄГ !\n");
                     break;
                 }
-                if (push_sorted_asc(s, val)) printf("Успешно\n");
-                else printf("Ошибка добавления!\n");
+                if (push_sorted_asc(s, val)) printf("Г“Г±ГЇГҐГёГ­Г®\n");
+                else printf("ГЋГёГЁГЎГЄГ  Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГї!\n");
                 break;
             }
             case 3:
-                print_stack(&stack1, "Стек 1");
-                print_stack(&stack2, "Стек 2");
-                print_stack(&stack3, "Стек 3");
+                print_stack(&stack1, "Г‘ГІГҐГЄ 1");
+                print_stack(&stack2, "Г‘ГІГҐГЄ 2");
+                print_stack(&stack3, "Г‘ГІГҐГЄ 3");
                 break;
             case 4:
                 stack3.top = -1;
                 merge_stacks_desc(&stack1, &stack2, &stack3);
-                printf("Объединенный стек создан!\n");
+                printf("ГЋГЎГєГҐГ¤ГЁГ­ГҐГ­Г­Г»Г© Г±ГІГҐГЄ Г±Г®Г§Г¤Г Г­!\n");
                 break;
             case 5: break;
-            default: printf("Неверный выбор!\n");
+            default: printf("ГЌГҐГўГҐГ°Г­Г»Г© ГўГ»ГЎГ®Г°!\n");
         }
     } while (choice != 5);
 
