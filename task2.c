@@ -1,6 +1,6 @@
 #include "stack.h"
 
-// Функции для задания 2
+// Г”ГіГ­ГЄГ¶ГЁГЁ Г¤Г«Гї Г§Г Г¤Г Г­ГЁГї 2
 int push(Stack* s, int value) {
     if (is_full(s)) return 0;
     s->data[++s->top] = value;
@@ -17,56 +17,56 @@ int find_max_even(Stack* s) {
     return max_even;
 }
 
-void task2() {
+void max_chetn() {
     Stack stack;
     int max_size;
 
-    printf("\n=== Задание 2 ===\n");
-    printf("Введите размер стека: ");
+    printf("\n=== Г‡Г Г¤Г Г­ГЁГҐ 2 ===\n");
+    printf("Г‚ГўГҐГ¤ГЁГІГҐ Г°Г Г§Г¬ГҐГ° Г±ГІГҐГЄГ : ");
     scanf("%d", &max_size);
     init_stack(&stack, max_size);
 
     int choice;
     do {
-        printf("\nМеню задания 2:\n");
-        printf("1. Добавить элемент\n");
-        printf("2. Просмотреть стек\n");
-        printf("3. Найти макс. четный\n");
-        printf("4. Вернуться\nВыберите: ");
+        printf("\nГЊГҐГ­Гѕ Г§Г Г¤Г Г­ГЁГї 2:\n");
+        printf("1. Г„Г®ГЎГ ГўГЁГІГј ГЅГ«ГҐГ¬ГҐГ­ГІ\n");
+        printf("2. ГЏГ°Г®Г±Г¬Г®ГІГ°ГҐГІГј Г±ГІГҐГЄ\n");
+        printf("3. ГЌГ Г©ГІГЁ Г¬Г ГЄГ±. Г·ГҐГІГ­Г»Г©\n");
+        printf("4. Г‚ГҐГ°Г­ГіГІГјГ±Гї\nГ‚Г»ГЎГҐГ°ГЁГІГҐ: ");
 
         if (scanf("%d", &choice) != 1) {
             clear_input_buffer();
-            printf("Ошибка ввода!\n");
+            printf("ГЋГёГЁГЎГЄГ  ГўГўГ®Г¤Г !\n");
             continue;
         }
 
         switch(choice) {
             case 1:
                 if (is_full(&stack)) {
-                    printf("Стек полон!\n");
+                    printf("Г‘ГІГҐГЄ ГЇГ®Г«Г®Г­!\n");
                     break;
                 }
                 int val;
-                printf("Значение: ");
+                printf("Г‡Г­Г Г·ГҐГ­ГЁГҐ: ");
                 if (scanf("%d", &val) == 1) {
                     push(&stack, val);
-                    printf("Добавлено\n");
+                    printf("Г„Г®ГЎГ ГўГ«ГҐГ­Г®\n");
                 } else {
                     clear_input_buffer();
-                    printf("Ошибка!\n");
+                    printf("ГЋГёГЁГЎГЄГ !\n");
                 }
                 break;
             case 2:
-                print_stack(&stack, "Текущий стек");
+                print_stack(&stack, "Г’ГҐГЄГіГ№ГЁГ© Г±ГІГҐГЄ");
                 break;
             case 3: {
                 int res = find_max_even(&stack);
-                if (res != INT_MIN) printf("Максимум: %d\n", res);
-                else printf("Четных нет!\n");
+                if (res != INT_MIN) printf("ГЊГ ГЄГ±ГЁГ¬ГіГ¬: %d\n", res);
+                else printf("Г—ГҐГІГ­Г»Гµ Г­ГҐГІ!\n");
                 break;
             }
             case 4: break;
-            default: printf("Неверно!\n");
+            default: printf("ГЌГҐГўГҐГ°Г­Г®!\n");
         }
     } while (choice != 4);
 
